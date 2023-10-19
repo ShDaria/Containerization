@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  application:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+     - "0.0.0.0:5000:5000"
+    networks:
+      - main
+
+  redis:
+    image: "redis:latest"
+    command: sleep 3600
+    networks:
+      - main
+
+networks:
+  main:
+
+
+
